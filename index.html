@@ -61,6 +61,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-sql-learn - 1本" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/04/24/sql-learn - 1本/" class="article-date">
+  <time datetime="2017-04-24T06:35:19.815Z" itemprop="datePublished">2017-04-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/04/24/sql-learn - 1本/">sql学习</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>/<em>INSERTINTO语句</em>/<br>create table Test(id int,name char(20),sex char(10))    /<em>创建表</em>/<br>insert into Test values(01,’ted’,’男’)                  /<em>插入数据</em>/<br>insert into Test values(02,’make’,’男’)<br>insert into Test values(03,’lina’,’女’)<br>insert into Test values(05,’lina’,’女’)<br>insert into Test (id) values(04)                        /<em>对应插入数据</em>/</p>
+<p>/<em>UPDATE表名称SET列名称=新值WHERE列名称=某值</em>/<br>update Test set id=1where name=’ted’<br>update Test set name=’kimi’,sex=’女’where id=4          /<em>更新某一行中的若干列</em>/</p>
+<p>/<em>DELETE语句 DELETE语句用于删除表中的行。</em>/<br>delete from Test where id=5</p>
+<p>select top 2 <em> from Test<br>select top 50 percent</em> from Test/<em>访问前50%</em>/</p>
+<p>/<em>Like 操作</em>/<br>select <em> from Test where name like ‘%t%’<br>select </em> from Test where name not like ‘%t%’/<em>not like</em>/</p>
+<p>/<em>IN 操作</em>/<br>select <em> from Test where name IN(‘make’,’lina’)<br>select </em> from Test where name =’make’ or name=’lina’</p>
+<p>/<em>between…and操作</em>/<br>select * from Test where name between ‘make’ and ‘ted’</p>
+<p>/<em>使用表别名</em>/<br>select a.name,a.sex,a.id from Test as a where a.name=’ted’</p>
+<p>create table Test1(sid int,score int)<br>insert into Test1 values(4,100)</p>
+<p>/<em>引用两个表</em>/<br>select a.id,a.name,a1.score from Test as a, Test1 as a1 where a.id=a1.sid<br>select a.id,a.name,a1.score from Test as a inner join Test1 as a1 on a.id=a1.sid /<em>inner join …on..方法</em>/</p>
+<p>select name from Test inner join Test1 on Test.id=Test1.sid/<em>两张表有一个匹配就可以用返回数值</em>/<br>select name from Test left join Test1 on Test.id=Test1.sid<br>select sid from Test right join Test1 on Test.id=Test1.sid<br>select name  from Test full join Test1 on Test.id=Test1.sid<br>select <em> from Test1<br>select </em> from Test</p>
+<p>create table Employee_USA(id int,E_Name varchar(20))<br>insert into Employee_USA values(1,’jim,tian’)<br>insert into Employee_USA values(2,’admin,tian’)<br>insert into Employee_USA values(3,’mike,tian’)<br>insert into Employee_USA values(4,’john,tian’)<br>insert into Employee_China values(5,’lina,tian’)<br>select <em> from Employee_USA<br>select </em> from Employee_China<br>/<em>使用UNION UNION操作符用于合并两个或多个SELECT语句的结果集</em>/<br>select E_Name from Employee_China Union<br>select E_Name from Employee_USA /<em>有一个重复的不显示</em>/</p>
+<p>select E_Name from Employee_China Union all<br>select E_Name from Employee_USA /<em>加上all有一个重复的显示</em>/</p>
+<p>/<em><br>SELECTINTO语句语句可用于创建表的备份复件。 SELECTINTO语句 SELECTINTO语句<br>从一个表中选取数据，然后把数据插入另一个表中。SELECTINTO语句常用于创建表的备份复件或者用于对记录进行存档。
+</em>/</p>
+<p>CREATE TABLE Persons( Id_P int NOT NULL, LastName varchar(255)NOTNULL,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255))/<em>not null 代表非空</em>/</p>
+<p>CREATE TABLE Persons1( Id_P int NOT NULL, LastName varchar(255)NOTNULL UNIQUE,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255))/<em>UNIQUE(Id_P) 代表字段唯一</em>/</p>
+<p>CREATE TABLE Persons2( Id_P int NOT NULL, LastName varchar(255)NOTNULL primary key,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255))/<em>UNIQUE(Id_P) 主键唯一</em>/</p>
+<p>ALTER TABLE Persons DROP CONSTRAINT pk_PersonID/<em>撤销</em>/</p>
+<p>CREATE TABLE Persons2( Id_P int NOT NULL, LastName varchar(255)NOTNULL primary key,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255)<br>                      Id_P int foreign KEY REFERENCES Persons(Id_P))/<em>UNIQUE(Id_P) 设置外键</em>/</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/04/24/sql-learn - 1本/" data-id="cj1vr0q210002u4vdngt92cz0" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-sql-learn" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/03/29/sql-learn/" class="article-date">
@@ -107,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/29/sql-learn/" data-id="cj1vqyulx0001zwvdxxh9o6ya" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/29/sql-learn/" data-id="cj1vr0q240004u4vdfz91sk6d" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -144,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/21/共享单车建议/" data-id="cj1vqyum10002zwvdgisy4axt" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/21/共享单车建议/" data-id="cj1vr0q230003u4vdd1hkzbfj" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -180,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/13/Welcome/" data-id="cj1vqyulr0000zwvdw5cpnpqv" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/13/Welcome/" data-id="cj1vr0q1z0001u4vditmk8zgl" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -225,7 +281,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/13/hello-world/" data-id="cj1vqyum30003zwvdhh74t68o" class="article-share-link">Partager</a>
+      <a data-url="http://yoursite.com/2017/03/13/hello-world/" data-id="cj1vr0q1s0000u4vd98iaiem4" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -252,7 +308,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
     </div>
   </div>
 
@@ -263,6 +319,10 @@
     <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/04/24/sql-learn - 1本/">sql学习</a>
+          </li>
         
           <li>
             <a href="/2017/03/29/sql-learn/">sql学习</a>
