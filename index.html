@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -60,62 +60,6 @@
 </header>
       <div class="outer">
         <section id="main">
-  
-    <article id="post-sql-learn" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/29/sql-learn/" class="article-date">
-  <time datetime="2017-03-29T09:54:43.263Z" itemprop="datePublished">2017-03-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/29/sql-learn/">sql学习</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>/<em>INSERTINTO语句</em>/<br>create table Test(id int,name char(20),sex char(10))    /<em>创建表</em>/<br>insert into Test values(01,’ted’,’男’)                  /<em>插入数据</em>/<br>insert into Test values(02,’make’,’男’)<br>insert into Test values(03,’lina’,’女’)<br>insert into Test values(05,’lina’,’女’)<br>insert into Test (id) values(04)                        /<em>对应插入数据</em>/</p>
-<p>/<em>UPDATE表名称SET列名称=新值WHERE列名称=某值</em>/<br>update Test set id=1where name=’ted’<br>update Test set name=’kimi’,sex=’女’where id=4          /<em>更新某一行中的若干列</em>/</p>
-<p>/<em>DELETE语句 DELETE语句用于删除表中的行。</em>/<br>delete from Test where id=5</p>
-<p>select top 2 <em> from Test<br>select top 50 percent</em> from Test/<em>访问前50%</em>/</p>
-<p>/<em>Like 操作</em>/<br>select <em> from Test where name like ‘%t%’<br>select </em> from Test where name not like ‘%t%’/<em>not like</em>/</p>
-<p>/<em>IN 操作</em>/<br>select <em> from Test where name IN(‘make’,’lina’)<br>select </em> from Test where name =’make’ or name=’lina’</p>
-<p>/<em>between…and操作</em>/<br>select * from Test where name between ‘make’ and ‘ted’</p>
-<p>/<em>使用表别名</em>/<br>select a.name,a.sex,a.id from Test as a where a.name=’ted’</p>
-<p>create table Test1(sid int,score int)<br>insert into Test1 values(4,100)</p>
-<p>/<em>引用两个表</em>/<br>select a.id,a.name,a1.score from Test as a, Test1 as a1 where a.id=a1.sid<br>select a.id,a.name,a1.score from Test as a inner join Test1 as a1 on a.id=a1.sid /<em>inner join …on..方法</em>/</p>
-<p>select name from Test inner join Test1 on Test.id=Test1.sid/<em>两张表有一个匹配就可以用返回数值</em>/<br>select name from Test left join Test1 on Test.id=Test1.sid<br>select sid from Test right join Test1 on Test.id=Test1.sid<br>select name  from Test full join Test1 on Test.id=Test1.sid<br>select <em> from Test1<br>select </em> from Test</p>
-<p>create table Employee_USA(id int,E_Name varchar(20))<br>insert into Employee_USA values(1,’jim,tian’)<br>insert into Employee_USA values(2,’admin,tian’)<br>insert into Employee_USA values(3,’mike,tian’)<br>insert into Employee_USA values(4,’john,tian’)<br>insert into Employee_China values(5,’lina,tian’)<br>select <em> from Employee_USA<br>select </em> from Employee_China<br>/<em>使用UNION UNION操作符用于合并两个或多个SELECT语句的结果集</em>/<br>select E_Name from Employee_China Union<br>select E_Name from Employee_USA /<em>有一个重复的不显示</em>/</p>
-<p>select E_Name from Employee_China Union all<br>select E_Name from Employee_USA /<em>加上all有一个重复的显示</em>/</p>
-<p>/<em><br>SELECTINTO语句语句可用于创建表的备份复件。 SELECTINTO语句 SELECTINTO语句<br>从一个表中选取数据，然后把数据插入另一个表中。SELECTINTO语句常用于创建表的备份复件或者用于对记录进行存档。
-</em>/</p>
-<p>CREATE TABLE Persons( Id_P int NOT NULL, LastName varchar(255)NOTNULL,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255))/<em>not null 代表非空</em>/</p>
-<p>CREATE TABLE Persons1( Id_P int NOT NULL, LastName varchar(255)NOTNULL UNIQUE,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255))/<em>UNIQUE(Id_P) 代表字段唯一</em>/</p>
-<p>CREATE TABLE Persons2( Id_P int NOT NULL, LastName varchar(255)NOTNULL primary key,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255))/<em>UNIQUE(Id_P) 主键唯一</em>/</p>
-<p>ALTER TABLE Persons DROP CONSTRAINT pk_PersonID/<em>撤销</em>/</p>
-<p>CREATE TABLE Persons2( Id_P int NOT NULL, LastName varchar(255)NOTNULL primary key,<br>                      FirstName varchar(255),Address varchar(255),City varchar(255)<br>                      Id_P int foreign KEY REFERENCES Persons(Id_P))/<em>UNIQUE(Id_P) 设置外键</em>/</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/29/sql-learn/" data-id="cj1vrd61z0002bgvdp4xqrhpl" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
   
     <article id="post-共享单车建议" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -144,7 +88,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/21/共享单车建议/" data-id="cj1vrd61z0000bgvdqbcs3vie" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/21/共享单车建议/" data-id="cj1vrd61z0000bgvdqbcs3vie" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -180,7 +124,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/13/Welcome/" data-id="cj1vrd61z0001bgvds287trd7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/13/Welcome/" data-id="cj1vrd61z0001bgvds287trd7" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -225,7 +169,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/13/hello-world/" data-id="cj1vrd61z0003bgvdr322wv1g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/03/13/hello-world/" data-id="cj1vrd61z0003bgvdr322wv1g" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -260,13 +204,9 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2017/03/29/sql-learn/">sql学习</a>
-          </li>
         
           <li>
             <a href="/2017/03/21/共享单车建议/">关于共享单车机制完善的思考</a>
@@ -293,7 +233,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
